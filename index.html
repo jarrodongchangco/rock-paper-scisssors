@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <title> Rock Paper Scissors</title>
+
+        <style>
+            body{
+                background-color: white;
+            }
+            p {
+
+            }
+  
+
+        </style>   
+    </head>
+
+    <body>
+        <h1> Rock Paper Scissors</h1>
+
+        <script>
+        
+        // ai chooses rock. paper. scissors. return a string
+        function ComputerPlay() {
+
+            let randomNumber = Math.floor((Math.random() * 3) + 1);
+            let choice = ""
+            if (randomNumber == "1") {
+                return "rock";
+            }        
+            else if (randomNumber == "2") {
+                return "paper";
+            }
+            else if (randomNumber == "3") {
+                return "scissors";
+            }
+            else {
+                return "There seems to be an error with my codee";
+            }
+        }
+        
+        // player chooses rock, paper, or scissors returns a string
+        function PlayerChoose() {
+            userChoice = "";
+            while (true) {
+                let userChoice = prompt("choose a hand");
+                if(userChoice == "rock" || userChoice == "paper"|| userChoice == "scissors") {
+                    return userChoice.toLowerCase();
+                    break;
+                }
+            }                        
+        }
+        
+        // choose amount of rounds in a game, returns a number
+        function ChooseAmountOfRound() {
+            userChoice = "fdssadfsa";         
+            while (isNaN(userChoice) ) {
+                let userChoice = prompt("choose amount rounds to play");
+                if(isNaN(userChoice)===false){
+                    return parseInt(userChoice);  
+                    break;
+                }
+            }                    
+        }
+
+        // play rock paper scissors 
+        function Game() {            
+            let rounds = ChooseAmountOfRound();
+            let computerChoice = ComputerPlay();
+            let playerChoice = PlayerChoose();
+
+            for (i = 1; i < rounds; i++) {
+                let computerChoice = ComputerPlay();
+                let playerChoice = PlayerChoose();
+                console.log(PlayRound(playerChoice, computerChoice));
+            }
+        }
+
+        // determines the winner of the round, returns a string
+        function PlayRound(playerSelection, computerPlay){
+            if (playerSelection == computerPlay) {
+                return "Its a tie!";
+            }
+            else if(playerSelection == "rock" && computerPlay == "paper") {
+                return "Computer wins!";
+            }
+            else if(playerSelection == "rock" && computerPlay == "scissors") {
+                return "You win!";
+            }
+            else if(playerSelection == "paper" && computerPlay == "rock") {
+                return "You win!";
+            }
+            else if(playerSelection == "paper" && computerPlay == "scissors") {
+                return "Computer wins!";
+            }
+            else if(playerSelection == "scissors" && computerPlay == "paper") {
+                return "You win!";
+            }
+            else if(playerSelection == "scissors" && computerPlay == "rock") {
+                return "Computer wins!";
+            }
+            else {
+                return "Your code sucks ass";
+            }
+        }
+        
+        </script>
+
+    </body>
+</html>
