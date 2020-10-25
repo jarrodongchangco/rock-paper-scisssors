@@ -1,0 +1,54 @@
+
+body {
+    background-color:brown;
+}
+* {
+    box-sizing: border-box;
+  }
+.buttonChoice {
+    /* padding: 15px 25px;
+    font-size: 24px; */
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background-color: #4CAF50;
+    border: none;
+    padding: 20px 32px;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+
+
+.button:hover {background-color: #3e8e41}
+
+.button:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+
+.third-column {
+    float: left;
+    width: 33.33%;
+    padding: 10px;
+    height: 300px;
+    text-align:center;
+}
+
+.half-column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  height: 300px;
+  text-align:center;
+
+}
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+  } 
+#div-winner {
+  background-color: white;
+}

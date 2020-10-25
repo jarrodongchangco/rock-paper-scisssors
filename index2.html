@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title> Rock Paper Scissors</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <h1> Rock Paper Scissors</h1>
+
+        <div class="row">
+            <div class="third-column" style="background-color:#aaa;">
+                
+                    <h2>Rock</h2>
+                    <p>Some text..</p>
+                    <div class = "center">
+                        <button id="rockButton" class="buttonChoice" >Click Me</button>
+                    </div>
+            </div>
+            <div class="third-column" style="background-color:#bbb;">
+                <h2>Paper</h2>
+                <p>Some text..</p>
+                <button id="paperButton" class="buttonChoice" >Click Me</button>
+
+            </div>
+            <div class="third-column" style="background-color:#ccc;">
+              <h2>Scissors</h2>
+              <p>Some text..</p>
+              <button id="scissorsButton" class="buttonChoice" >Click Me</button>
+
+            </div>
+
+        </div>
+
+          <div class="half-column" style="background-color:aqua;">
+            <p>Computer Score:</p>
+            <p id="computerScore">0</p>
+          </div>
+
+          <div class="half-column" style="background-color:aquamarine;">
+            <p>Human Score:</p>
+            <p id="playerScore">0</p>
+          </div>
+        
+        <div style="background-color: aqua;">
+            <p style="background-color:grey;">The winner is: </p>
+        </div>
+        
+
+        <script>
+        
+        // ai chooses rock. paper. scissors. return a string
+        function ComputerPlay() {
+
+            let randomNumber = Math.floor((Math.random() * 3) + 1);
+            let choice = ""
+            if (randomNumber == "1") {
+                return "rock";
+            }        
+            else if (randomNumber == "2") {
+                return "paper";
+            }
+            else if (randomNumber == "3") {
+                return "scissors";
+            }
+            else {
+                return "There seems to be an error with my codee";
+            }
+        }
+        
+        
+        // choose amount of rounds in a game, returns a number
+        function ChooseAmountOfRound() {
+            userChoice = "fdssadfsa";         
+            while (isNaN(userChoice) ) {
+                let userChoice = prompt("choose amount rounds to play");
+                if(isNaN(userChoice)===false){
+                    return parseInt(userChoice);  
+                    break;
+                }
+            }                    
+        }
+
+        // play rock paper scissors 
+        function Game(plChoice) {  
+
+            let computerChoice = ComputerPlay();
+            
+            let computerScore = parseInt(document.getElementById("computerScore").innerHTML);
+            let playerScore = parseInt(document.getElementById("playerScore").innerHTML);
+            // console.log((computerScore));
+            // console.log((playerScore));
+            // console.log(computerScore<5);
+            // console.log(playerScore<5);
+            console.log(computerChoice);
+            console.log(playerChoice)
+            console.log("division 2")
+            
+            if(playerScore < 5 && computerScore < 5){
+                // Play round and get Score
+                
+                PlayRound(plChoice, computerChoice, computerScore, playerScore);
+                // Change 2 htmls that have score 
+                // document.getElementById("computerScore").innerHTML =
+                // document.getElementById("playerScore").innerHTML = 
+
+            }  
+            else {
+                //append winner to html
+                if(computerScore > playerScore){
+                    // console.log("over here");
+                    document.getElementById("computerScore").innerHTML = "Computer Wins";
+                    return 0;
+                } else{
+                    document.getElementById("computerScore").innerHTML = "Computer Wins";
+                    
+                }
+            }
+            
+        }
+
+        // determines the winner of the round, returns a string
+        function PlayRound(playerSelection, computerPlay, computerScore, playerScore){
+            if (playerSelection == computerPlay) {
+                let scoreValue = 0;
+                let message = "Its a tie!";
+               
+                // return [scoreValue, message];
+            }
+            else if(playerSelection == "rock" && computerPlay == "paper") {
+                let scoreValue = parseInt((computerScore + 1), 10);
+                let message = "Computer wins!";
+                // console.log((scoreValue));
+
+                
+                document.getElementById("computerScore").innerHTML = scoreValue;
+                // return [scoreValue, message];
+            }
+            else if(playerSelection == "scissors" && computerPlay == "rock") {
+                let scoreValue = parseInt((computerScore + 1), 10);
+                let message = "Computer wins!";
+                document.getElementById("computerScore").innerHTML = scoreValue;
+                // return [scoreValue, message];
+                // console.log((scoreValue));
+
+
+            }
+            else if(playerSelection == "paper" && computerPlay == "scissors") {
+                let scoreValue = parseInt((computerScore + 1), 10);
+                let message = "Computer wins!";
+                document.getElementById("computerScore").innerHTML = scoreValue;
+                // console.log((scoreValue));
+
+
+                // return [scoreValue, message];
+            }
+            else if(playerSelection == "rock" && computerPlay == "scissors") {
+                let scoreValue = parseInt((playerScore + 1), 10);
+                let message = "You win!";
+                document.getElementById("playerScore").innerHTML = scoreValue;
+                // return [scoreValue, message];
+                // console.log((scoreValue));
+
+            }
+            else if(playerSelection == "paper" && computerPlay == "rock") {
+                let scoreValue = parseInt((playerScore + 1), 10);
+                let message = "You win!";
+                document.getElementById("playerScore").innerHTML = scoreValue;
+                // return [scoreValue, message];
+                // console.log((scoreValue));
+
+            }
+
+            else if(playerSelection == "scissors" && computerPlay == "paper") {
+                let scoreValue = parseInt((playerScore + 1), 10);
+                let message = "You win!";
+                document.getElementById("playerScore").innerHTML = scoreValue;
+                // return [scoreValue, message];
+                // console.log((scoreValue));
+
+            }
+
+            else {
+                return "Your code sucks ass";
+            }
+        }
+
+/*
+        function playSound(e) {
+            //console.log(e.keyCode);
+            const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+            const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+            if(!audio) return;
+            audio.currentTime = 0; // rewind to the start
+            audio.play();
+            // key.classList.add('playing');
+        }
+*/
+        function PlayerChoose(userChoice) {
+            while (true) {
+                if(userChoice == "rock" || userChoice == "paper"|| userChoice == "scissors") {
+                    console.log(userChoice);
+                    return userChoice;
+                }   
+            }                        
+        }
+        // document.getElementById("myBtn").addEventListener("click", displayDate);
+
+        const buttons = document.querySelectorAll('.buttonChoice');
+        // and for each one we add a 'click' listener
+        buttons.forEach((button) => {
+        // we use the .forEach method to iterate through each button
+        
+        button.addEventListener('click', () => {
+            // alert(typeof(button.id));
+            let choice = button.id;
+            let regexChoice = choice.replace(/Button/g,"");
+            // console.log(regexChoice);
+            playerChoice = PlayerChoose(regexChoice);
+            Game(playerChoice);
+            
+        });
+        });
+        // window.addEventListener("onclick", PlayerChoose());
+
+        </script>
+
+    </body>
+</html>
